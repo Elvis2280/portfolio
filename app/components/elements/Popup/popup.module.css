@@ -1,0 +1,35 @@
+/* Popup box animation to show and hidden  */
+.showPopup {
+  animation-name: showPopup;
+  animation-duration: 400ms;
+  animation-iteration-count: initial;
+  animation-timing-function: ease-in-out;
+}
+
+.hiddePop {
+  animation-name: hiddePop;
+  animation-duration: 400ms;
+  animation-iteration-count: initial;
+  animation-timing-function: ease-in-out;
+  visibility: hidden;
+}
+
+@keyframes showPopup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes hiddePop {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

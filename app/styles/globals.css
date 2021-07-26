@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.layout-component {
+  max-width: 56.25rem;
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pb-20vw {
+  padding-bottom: 22vw;
+}
+
+.pt-20vw {
+  padding-top: 22vw;
+}
+
+/* Title animated change color to important word */
+.TitleAnimeColor > * {
+  color: #94a9ff !important;
+}
+
+/*Responsive NextJS Image without know the height and width*/
+.imgRound {
+  border-radius: 50%;
+}
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.unset-img {
+  width: 100%;
+}
+.unset-img > div {
+  position: unset !important;
+}
+
+.iconWraper:hover div:first-of-type {
+  visibility: visible !important;
+  transition: all 500ms;
+}
+
+.min-h50 {
+  min-height: 50vh;
+}
+
+.clip--down {
+  -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.clip--clicle {
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+}
+
+.bottom--10 {
+  bottom: 10%;
+}
+
+.marginRight--35 {
+  margin-right: 35%;
+}
+
+@media screen and (min-width: 758px) {
+  .marginRight--35 {
+    margin-right: 25%;
+  }
+}
+
+.pic__border {
+  border: 4px solid #94a9ff !important;
+}
+
+.aboutMe--picSpace {
+  min-height: calc(100vh - 300px);
+  padding-bottom: 300px;
+}
