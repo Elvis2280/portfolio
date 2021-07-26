@@ -8,7 +8,16 @@ const Header = ({ home_pic }) => {
     <div className="relative pb-20vw ">
       <div className="z-10 relative grid grid-cols-8 auto-rows-max layout-component">
         <div className="col-start-1 col-span-5 row-start-1 row-span-2">
-          <TitleAnimated />
+          <TitleAnimated
+            text={[
+              `Hi, I'm <span >Elvis</span >`,
+              `Hi, I'm <span >Elvis Ariel</span >`,
+              `Hi, I'm <span >Elvis Miranda</span >`,
+              `Nice to meet <span >you!</span >`,
+              `Hi, I'm <span >Elvis</span>`,
+            ]}
+            textSize="text-4xl sm:text-5xl lg:text-6xl"
+          />
           <p className="text-neutralGray font-bold pb-8 sm:text-xl ">
             Frontend Developer
           </p>

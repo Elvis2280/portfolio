@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
+import Btn_linkPage from '../app/components/elements/btn_linkPage/Btn_linkPage';
 
 export async function getStaticProps(context) {
   const { data: empty_page } = await axios.get(
@@ -33,11 +34,7 @@ function Custom404({ empty_page }) {
         </div>
       </div>
 
-      <Link href="/">
-        <a className="uppercase mt-4 inline-block py-2 px-3 rounded bg-secondaryVeryLight text-secondaryDark hover:bg-secondaryDark hover:text-secondaryVeryLight transition-all duration-300">
-          Back to homepage
-        </a>
-      </Link>
+      <Btn_linkPage pageDirection="/">Back to homepage</Btn_linkPage>
     </div>
   );
 }

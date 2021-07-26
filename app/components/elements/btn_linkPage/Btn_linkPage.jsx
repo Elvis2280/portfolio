@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Btn_linkPage = ({ children, link, extraStyle, pageDirection }) => {
+const Btn_linkPage = ({ children, extraStyle, pageDirection }) => {
   return (
     <p>
       <Link href={pageDirection}>

@@ -18,9 +18,13 @@ const about = ({ aboutMe }) => {
   return (
     <section className=" layout-component flex justify-end  min-h-screen">
       <div className="relative w-full pb-96">
-        <h1 className="pt-8 text-neutral text-3xl md:text-4xl lg:text-5xl font-bold pr-2">
-          I&apos;m happy <span className="text-secondaryLight">you</span> want
-          to know more about <span className="text-secondaryLight">me</span>
+        <h1 className=" text-neutral text-3xl md:text-4xl lg:text-5xl font-bold pr-2">
+          <TitleAnimated
+            text={[
+              `I'm happy <span> you </span> want to know more about <span>me</span>`,
+            ]}
+            breakText={false}
+          />
         </h1>
 
         <h3 className="text-lg md:text-xl pt-2 font-semibold text-neutralGray">
@@ -32,7 +36,7 @@ const about = ({ aboutMe }) => {
           {aboutMe.description}
         </p>
 
-        <div className="absolute block bottom-32 right-14 md:right-0 transform translate-x-2/4 w-44 h-52  md:w-52 md:h-60">
+        <div className="absolute block bottom-32 right-14 md:right-0 transform translate-x-2/4 w-44 h-52  md:w-52 md:h-60 lg:w-56 lg:h-64 aboutMe--picBorder">
           <div className="left-0 absolute transform translate-x-8 translate-y-3/4">
             <svg
               viewBox="0 0 500 500"
@@ -69,7 +73,7 @@ const about = ({ aboutMe }) => {
             alt={aboutMe.myPic.name}
             layout="fill"
           />
-          <div className="transform -translate-x-2/4 absolute bottom-0 translate-y-2/4 w-32 h-40 md:w-40 md:h-48">
+          <div className="transform -translate-x-2/4 absolute bottom-0 translate-y-2/4 w-32 h-40 md:w-40 md:h-48 lg:w-44 lg:h-52 aboutMe--picBorder">
             <Image
               src={'http://localhost:1337' + aboutMe.myPic_2.formats.medium.url}
               alt={aboutMe.myPic.name}
@@ -84,4 +88,5 @@ const about = ({ aboutMe }) => {
   );
 };
 about.layout = 'L1';
+
 export default about;

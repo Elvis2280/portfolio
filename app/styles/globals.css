@@ -83,3 +83,8 @@
   min-height: calc(100vh - 300px);
   padding-bottom: 300px;
 }
+
+.aboutMe--picBorder * img {
+  border: 3px solid #fafdf6 !important;
+  border-radius: 8px !important;
+}

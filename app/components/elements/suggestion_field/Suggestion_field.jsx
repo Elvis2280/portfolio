@@ -8,6 +8,7 @@ const Suggestion_field = () => {
   //Taking react hooks form variables
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -25,6 +26,7 @@ const Suggestion_field = () => {
         setTimeout(() => {
           setNotification(false);
         }, 3000);
+        reset();
       })
       .catch(() => {
         setError(true);
