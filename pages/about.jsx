@@ -13,8 +13,6 @@ export async function getStaticProps(context) {
 }
 
 const about = ({ aboutMe }) => {
-  console.log(aboutMe);
-
   return (
     <section className=" layout-component flex justify-end  min-h-screen">
       <div className="relative w-full pb-96">

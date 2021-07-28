@@ -9,16 +9,19 @@ export async function getStaticProps(context) {
     'http://localhost:1337/home-picture',
   );
 
+  const { data: blogs } = await axios.get('http://localhost:1337/blogs');
+
   return {
     props: {
       projects,
       home_pic,
+      blogs,
     },
   };
 }
 
-const Home = ({ projects, home_pic }) => {
-  return <Main_section projects={projects} home_pic={home_pic} />;
+const Home = ({ projects, home_pic, blogs }) => {
+  return <Main_section projects={projects} home_pic={home_pic} blogs={blogs} />;
 };
 
 Home.layout = 'L1';

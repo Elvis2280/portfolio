@@ -3,6 +3,7 @@ import Image from 'next/image';
 const Projects_card = ({ projects }) => {
   const cards = projects
     .slice(projects.length - 3, projects.length)
+    .reverse()
     .map((element) => {
       return (
         <article
