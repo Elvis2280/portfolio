@@ -16,12 +16,16 @@ const Navbar = () => {
                 About Me
               </a>
             </Link>
-            <a className="hover:text-neutral transition-all cursor-pointer duration-200 px-1 rounded active:ring-2">
-              Blog
-            </a>
-            <a className="hover:text-neutral transition-all cursor-pointer duration-200 px-1 rounded active:ring-2">
-              Projects
-            </a>
+            <Link href="/blog">
+              <a className="hover:text-neutral transition-all cursor-pointer duration-200 px-1 rounded active:ring-2">
+                Blog
+              </a>
+            </Link>
+            <Link href="/projects">
+              <a className="hover:text-neutral transition-all cursor-pointer duration-200 px-1 rounded active:ring-2">
+                Projects
+              </a>
+            </Link>
           </div>
         </div>
       </nav>

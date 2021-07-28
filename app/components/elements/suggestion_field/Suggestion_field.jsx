@@ -1,10 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
-import { useState } from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
 
 const Suggestion_field = () => {
-  const [notification, setNotification] = useState(false);
-  const [error, setError] = useState(false);
   //Taking react hooks form variables
   const {
     register,
@@ -21,39 +20,17 @@ const Suggestion_field = () => {
     console.log(data);
     sendForm('service_portfolio', 'template_8n1gpgn', '#portfolio_form')
       .then(() => {
-        //Show notification depend was success or not for 3 seconds
-        setNotification(true);
-        setTimeout(() => {
-          setNotification(false);
-        }, 3000);
+        toast.dark('Message Sent 😄!!');
         reset();
       })
       .catch(() => {
-        setError(true);
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
+        toast.error('Something went wrong 😥');
       });
   };
 
   return (
     <>
-      {notification && (
-        <p
-          className={` bg-dangerous text-neutral py-1 px-2 rounded-lg mt-2 absolute left-2/4 transform -translate-x-2/4 top-1/4 text-lg text-center`}
-        >
-          Message sent!! <i className="far fa-laugh-wink"></i>
-        </p>
-      )}
-      {error && (
-        <p
-          className={` bg-dangerous text-neutral py-1 px-2 rounded-lg mt-2 absolute left-2/4 transform -translate-x-2/4 top-1/4 text-lg text-center ${
-            error ? ' inline-block' : 'hidden'
-          }`}
-        >
-          Something went wrong!! <i className="far fa-frown-open"></i>
-        </p>
-      )}
+      <ToastContainer position="top-right" autoClose={3000} />
 
       <form
         className="pt-3"

@@ -17,6 +17,7 @@ const Header = ({ home_pic }) => {
               `Hi, I'm <span >Elvis</span>`,
             ]}
             textSize="text-4xl sm:text-5xl lg:text-6xl"
+            breakText={true}
           />
           <p className="text-neutralGray font-bold pb-8 sm:text-xl ">
             Frontend Developer

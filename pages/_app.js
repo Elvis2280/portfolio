@@ -1,4 +1,5 @@
 import '../app/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Layout from '../app/components/layouts/layout-main/Layout-main';
 import Layout_empty from '../app/components/layouts/layout_empty/Layout_empty.jsx';
 import Head from 'next/head';

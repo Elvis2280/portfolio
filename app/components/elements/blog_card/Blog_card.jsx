@@ -13,7 +13,7 @@ const Blog_card = ({ blogs }) => {
           </div>
           <div className="flex items-center">
             <p>{blog.date}</p>
-            <span className="w-1 h-1 rounded-full bg-secondaryDark mx-1"></span>
+            <span className="w-1 h-1 rounded-full bg-secondaryDark mx-1 md:w-2 md:h-2"></span>
             <p className="text-dangerous">{`${blog.time} min read`}</p>
           </div>
           <p className=" pt-2 md:text-lg">{blog.description}</p>
