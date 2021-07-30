@@ -1,6 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
   return (
-    <footer className="text-neutral pb-10">
+    <footer className="text-neutral pb-10 pt-2">
       <div className="layout-component flex flex-col items-center ">
         <p className="font-bold text-2xl md:text-3xl">
           Find <span className="text-secondaryLight">Me</span>
@@ -12,7 +16,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="far fa-envelope"></i>
+            <FontAwesomeIcon icon={faEnvelope} />
           </a>
           <a
             className="hover:text-secondaryLight transition-all mx-3"
@@ -20,7 +24,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-github  "></i>
+            <FontAwesomeIcon icon={faGithub} />
           </a>
 
           <a
@@ -29,7 +33,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-linkedin"></i>
+            <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </div>
       </div>

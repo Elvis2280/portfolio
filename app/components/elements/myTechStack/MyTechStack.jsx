@@ -1,5 +1,6 @@
 import Popup from '../Popup/Popup';
 
+//TODO: I have to change this data to my CMS
 const MyTechStack = () => {
   const popUpData = [
     {

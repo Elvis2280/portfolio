@@ -2,7 +2,6 @@ import Blog_card from '../../elements/blog_card/Blog_card';
 import Btn_linkPage from '../../elements/btn_linkPage/Btn_linkPage';
 
 const Blog_main = ({ blogs }) => {
-  console.log(blogs);
   return (
     <div>
       <h3 className="text-2xl font-semibold pb-3 pt-10 sm:text-3xl lg:text-4xl">

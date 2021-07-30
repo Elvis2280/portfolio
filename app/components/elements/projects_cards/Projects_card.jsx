@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { url } from '../../../../config/next.config';
 
 const Projects_card = ({ projects }) => {
   const cards = projects
@@ -40,13 +41,11 @@ const Projects_card = ({ projects }) => {
 
           <div className="mt-3 unset-img">
             <Image
-              src={
-                'http://localhost:1337' +
-                element.proyectPic[0].formats.large.url
-              }
+              src={url + element.proyectPic[0].formats.large.url}
               alt={element.title + ' Image'}
               layout="fill"
               className="custom-img"
+              loading="lazy"
             />
           </div>
         </article>

@@ -1,9 +1,16 @@
 import axios from 'axios';
 import Image from 'next/image';
 import TitleAnimated from '../app/components/elements/titleAnimated/TitleAnimated';
+import { url } from '../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: aboutMe } = await axios.get('http://localhost:1337/about-me');
+  const { data: aboutMe } = await axios.get(`${url}/about-me`);
+
+  if (!aboutMe) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
@@ -35,7 +42,7 @@ const about = ({ aboutMe }) => {
         </p>
 
         <div className="absolute block bottom-32 right-14 md:right-0 transform translate-x-2/4 w-44 h-52  md:w-52 md:h-60 lg:w-56 lg:h-64 aboutMe--picBorder">
-          <div className="left-0 absolute transform translate-x-8 translate-y-3/4">
+          <div className="left-0 absolute transform translate-x-6 md:translate-x-8 translate-y-3/4 md:translate-y-full">
             <svg
               viewBox="0 0 500 500"
               xmlns="http://www.w3.org/2000/svg"
@@ -67,21 +74,23 @@ const about = ({ aboutMe }) => {
             </svg>
           </div>
           <Image
-            src={'http://localhost:1337' + aboutMe.myPic.formats.medium.url}
+            src={url + aboutMe.myPic.formats.medium.url}
             alt={aboutMe.myPic.name}
             layout="fill"
+            loading="lazy"
           />
           <div className="transform -translate-x-2/4 absolute bottom-0 translate-y-2/4 w-32 h-40 md:w-40 md:h-48 lg:w-44 lg:h-52 aboutMe--picBorder">
             <Image
-              src={'http://localhost:1337' + aboutMe.myPic_2.formats.medium.url}
+              src={url + aboutMe.myPic_2.formats.medium.url}
               alt={aboutMe.myPic.name}
               layout="fill"
+              loading="lazy"
             />
           </div>
         </div>
       </div>
 
-      <div className="bg-secondary w-1/4 md:w-1/3 h-auto"></div>
+      <div className="bg-secondary w-1/5 md:w-1/3 h-auto"></div>
     </section>
   );
 };

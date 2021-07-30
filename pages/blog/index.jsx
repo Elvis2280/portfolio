@@ -2,12 +2,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
+import Link from 'next/link';
+import { url } from '../../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: blog } = await axios.get('http://localhost:1337/blogs');
-  const { data: empty_searchPicture } = await axios.get(
-    'http://localhost:1337/empty-search',
-  );
+  const { data: blog } = await axios.get(`${url}/blogs`);
+  const { data: empty_searchPicture } = await axios.get(`${url}/empty-search`);
 
   return {
     props: {
@@ -18,7 +18,6 @@ export async function getStaticProps(context) {
 }
 
 const Blog = ({ blog, empty_searchPicture }) => {
-  console.log(empty_searchPicture);
   const [search, setSearch] = useState('');
   const searchBlog = (e) => {
     //Insert the text from the searchbar to the State
@@ -31,35 +30,43 @@ const Blog = ({ blog, empty_searchPicture }) => {
       search.length !== 0 &&
       blog.title.toLowerCase().includes(search.toLowerCase())
     ) {
+      //title.replace(/\s/g, '-')
+
       return (
-        <article
-          key={blog.id}
-          className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer"
-        >
-          <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
-          <div className="flex items-center">
-            <p>{blog.date}</p>{' '}
-            <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
-            <p className="text-dangerous">{`${blog.time} min read`}</p>
-          </div>
-          <p className="pt-2 md:text-lg">{blog.description}</p>
-        </article>
+        <Link href={`/blog/${blog.id}`} key={blog.id}>
+          <a>
+            <article className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer">
+              <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
+              <div className="flex items-center">
+                <p>{blog.date}</p>{' '}
+                <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
+                <p className="text-dangerous">{`${blog.time} min read`}</p>
+              </div>
+              <p className="pt-2 md:text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
+                {blog.description}
+              </p>
+            </article>
+          </a>
+        </Link>
       );
       //only render all the elements if searchbar is empty
     } else if (search.length === 0) {
       return (
-        <article
-          key={blog.id}
-          className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer"
-        >
-          <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
-          <div className="flex items-center">
-            <p>{blog.date}</p>{' '}
-            <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
-            <p className="text-dangerous">{`${blog.time} min read`}</p>
-          </div>
-          <p className="pt-2 md:text-lg">{blog.description}</p>
-        </article>
+        <Link href={`/blog/${blog.id}`} key={blog.id}>
+          <a>
+            <article className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer">
+              <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
+              <div className="flex items-center">
+                <p>{blog.date}</p>{' '}
+                <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
+                <p className="text-dangerous">{`${blog.time} min read`}</p>
+              </div>
+              <p className="pt-2 md:text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
+                {blog.description}
+              </p>
+            </article>
+          </a>
+        </Link>
       );
     }
   });
@@ -82,7 +89,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
         <br />
         <input
           type="text"
-          className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2"
+          className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2 md:h-10 text-lg"
           placeholder="Type to search..."
           onChange={(e) => searchBlog(e)}
           value={search}
@@ -90,7 +97,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
       </form>
       {/* if all the items are undefined because searchText then return empty message otherwise if its not empty show the blog card */}
       {blog_card.every((element) => element === undefined) ? (
-        <div className="relative unset-img py-3">
+        <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
           <Image
             src={`http://localhost:1337${empty_searchPicture.empty_search_pic.url}`}
             layout="fill"

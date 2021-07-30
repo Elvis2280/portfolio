@@ -15,22 +15,11 @@ function MyApp({ Component, pageProps }) {
   const LayoutHandle =
     layouts[Component.layout] || ((children) => <>{children}</>);
   return (
-    <>
-      <Head>
-        <script
-          defer
-          src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
-          integrity="sha384-haqrlim99xjfMxRP6EWtafs0sB1WKcMdynwZleuUSwJR0mDeRYbhtY+KPMr+JL6f"
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
-
-      <QueryClientProvider client={queryClient}>
-        <LayoutHandle>
-          <Component {...pageProps} />
-        </LayoutHandle>
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <LayoutHandle>
+        <Component {...pageProps} />
+      </LayoutHandle>
+    </QueryClientProvider>
   );
 }
 
