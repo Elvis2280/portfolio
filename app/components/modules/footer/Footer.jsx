@@ -2,10 +2,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import Spotify_card from '../../elements/spotify_card/Spotify_card';
+
 const Footer = () => {
   return (
-    <footer className="text-neutral pb-10 pt-2">
-      <div className="layout-component flex flex-col items-center ">
+    <footer className="text-neutral pb-10 pt-6">
+      <div className="layout-component flex flex-col items-center border-t border-gray-600 pt-2">
+        <Spotify_card />
         <p className="font-bold text-2xl md:text-3xl">
           Find <span className="text-secondaryLight">Me</span>
         </p>

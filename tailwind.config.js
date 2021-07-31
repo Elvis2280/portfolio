@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      maxWidth: {
+        '1/2': '50%',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

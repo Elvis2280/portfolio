@@ -89,7 +89,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
         <br />
         <input
           type="text"
-          className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2 md:h-10 text-lg"
+          className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2 md:h-10 text-lg text-secondaryVeryLight"
           placeholder="Type to search..."
           onChange={(e) => searchBlog(e)}
           value={search}
@@ -99,7 +99,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
       {blog_card.every((element) => element === undefined) ? (
         <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
           <Image
-            src={`http://localhost:1337${empty_searchPicture.empty_search_pic.url}`}
+            src={`${url}${empty_searchPicture.empty_search_pic.url}`}
             layout="fill"
             alt={empty_searchPicture.empty_search_pic.name}
             className="custom-img"

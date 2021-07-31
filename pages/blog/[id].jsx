@@ -33,10 +33,10 @@ const Blog_element = (blog) => {
   const [formatedDate] = useFormatDate(blog.date);
 
   return (
-    <section className="layout-component border-b border-gray-600 pb-4">
+    <section className="layout-component pb-4">
       <div className="text-neutral">
         <TitleAnimated
-          breakText={true}
+          breakText={false}
           text={[blog.title.slice(0, 1).toUpperCase() + blog.title.slice(1)]}
           textSize="text-4xl sm:text-5xl lg:text-6xl"
         />

@@ -6,7 +6,7 @@ import Image from 'next/image';
 const components = {
   img({ src, alt, ...props }) {
     return (
-      <div className="unset-img">
+      <div className="unset-img my-3">
         <Image
           className="custom-img"
           src={src}
@@ -18,6 +18,7 @@ const components = {
       </div>
     );
   },
+
   p(props) {
     const element = props.children[0];
     if (typeof element === 'object') {
@@ -30,7 +31,7 @@ const components = {
 };
 const Markdown_text = ({ content }) => {
   return (
-    <article className="pt-2 prose lg:prose-lg">
+    <article className="pt-2 w-full prose lg:prose-lg">
       <ReactMarkdown
         linkTarget="_blank"
         components={components}

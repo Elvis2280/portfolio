@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
 const about = ({ aboutMe }) => {
   return (
     <section className=" layout-component flex justify-end  min-h-screen">
-      <div className="relative w-full pb-96">
+      <div className="relative w-full pb-96 lg:mb-8">
         <h1 className=" text-neutral text-3xl md:text-4xl lg:text-5xl font-bold pr-2">
           <TitleAnimated
             text={[
