@@ -1,5 +1,5 @@
 const production = process.env.NODE_ENV === 'production';
 
 export const url = production
-  ? 'https://emirandaweb.com'
+  ? 'https://elvisdev-portfolio.netlify.app'
   : 'http://localhost:1337';
