@@ -40,7 +40,7 @@ const Blog_element = (blog) => {
           text={[blog.title.slice(0, 1).toUpperCase() + blog.title.slice(1)]}
           textSize="text-4xl sm:text-5xl lg:text-6xl"
         />
-        <p className="pb-3 pt-2 md:text-lg">
+        <p className="pb-3 pt-2 md:text-lg text-neutralGray">
           {`Written on ${formatedDate === null ? '' : formatedDate} by `}
           <span className="text-secondaryLight">
             <Link href="/about">
@@ -55,7 +55,7 @@ const Blog_element = (blog) => {
         <Markdown_text content={blog.content} />
       </div>
       <Link href={`/blog`}>
-        <a className="text-neutral hover:text-secondaryLight transition duration-300 mt-8 inline-block">
+        <a className="text-secondaryLight hover:text-neutral transition duration-300 mt-8 inline-block">
           <FontAwesomeIcon icon={faArrowLeft} /> Back to blog
         </a>
       </Link>

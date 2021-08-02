@@ -88,3 +88,7 @@
   border: 3px solid #fafdf6 !important;
   border-radius: 8px !important;
 }
+
+.project_card:hover .proyecto_viewmore {
+  border-bottom: 2px solid currentColor;
+}

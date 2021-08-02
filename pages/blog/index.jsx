@@ -32,6 +32,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
     ) {
       //title.replace(/\s/g, '-')
 
+      //TODO: I have to change this to one component because is same like home page blog
       return (
         <Link href={`/blog/${blog.id}`} key={blog.id}>
           <a>

@@ -71,7 +71,7 @@ const Spotify_card = () => {
   } else if (!isSuccess) {
     return null;
   }
-  console.log(song);
+
   return { card };
 };
 

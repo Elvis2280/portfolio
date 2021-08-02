@@ -17,11 +17,11 @@ export async function getStaticProps(context) {
 function Custom404({ empty_page }) {
   return (
     <div className="text-secondaryVeryLight text-center my-10 layout-component xl:text-left">
-      <div className="xl:flex xl:items-center">
-        <div className="xl:w-2/4">
+      <section className="xl:flex xl:items-center">
+        <header className="xl:w-2/4">
           <h1 className="text-4xl md:text-5xl xl:text-8xl   font-bold mb-2">{`It's empty here`}</h1>
           <p className="text-xl xl:text-2xl">{`We can't find the page that you are looking for`}</p>
-        </div>
+        </header>
 
         <div className="unset-img xl:w-2/4">
           <Image
@@ -32,7 +32,7 @@ function Custom404({ empty_page }) {
             className="custom-img"
           />
         </div>
-      </div>
+      </section>
 
       <Btn_linkPage pageDirection="/">Back to homepage</Btn_linkPage>
     </div>
