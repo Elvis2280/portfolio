@@ -101,7 +101,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
       {blog_card.every((element) => element === undefined) ? (
         <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
           <Image
-            src={`${process.env.BACKEND_URL}${empty_searchPicture.empty_search_pic.url}`}
+            src={`${empty_searchPicture.empty_search_pic.url}`}
             layout="fill"
             alt={empty_searchPicture.empty_search_pic.name}
             className="custom-img"
