@@ -48,10 +48,7 @@ const Projects_card = ({
 
               <section className="mt-3 unset-img">
                 <Image
-                  src={
-                    process.env.BACKEND_URL +
-                    element.proyectPic[0].formats.large.url
-                  }
+                  src={element.proyectPic[0].formats.large.url}
                   alt={element.title + ' Image'}
                   layout="fill"
                   className="custom-img"

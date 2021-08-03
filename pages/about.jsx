@@ -75,14 +75,14 @@ const about = ({ aboutMe }) => {
             </svg>
           </div>
           <Image
-            src={process.env.BACKEND_URL + aboutMe.myPic.formats.medium.url}
+            src={aboutMe.myPic.formats.medium.url}
             alt={aboutMe.myPic.name}
             layout="fill"
             loading="lazy"
           />
           <div className="transform -translate-x-2/4 absolute bottom-0 translate-y-2/4 w-32 h-40 md:w-40 md:h-48 lg:w-44 lg:h-52 aboutMe--picBorder">
             <Image
-              src={process.env.BACKEND_URL + aboutMe.myPic_2.formats.medium.url}
+              src={aboutMe.myPic_2.formats.medium.url}
               alt={aboutMe.myPic.name}
               layout="fill"
               loading="lazy"

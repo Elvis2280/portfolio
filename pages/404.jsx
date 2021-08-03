@@ -27,7 +27,7 @@ function Custom404({ empty_page }) {
         <div className="unset-img xl:w-2/4">
           <Image
             alt={empty_page.page404.name}
-            src={process.env.BACKEND_URL + empty_page.page404.url}
+            src={empty_page.page404.url}
             layout="fill"
             loading="lazy"
             className="custom-img"

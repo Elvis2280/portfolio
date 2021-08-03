@@ -57,7 +57,7 @@ const Projects_info = (projects) => {
 
           <div className="unset-img mb-3">
             <Image
-              src={`${process.env.BACKEND_URL}${projects.proyectPic[0].url}`}
+              src={`${projects.proyectPic[0].url}`}
               alt={projects.proyectPic[0].name}
               layout="fill"
               className="custom-img"
