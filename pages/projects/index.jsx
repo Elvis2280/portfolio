@@ -1,10 +1,12 @@
 import axios from 'axios';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
-import { url } from '../../config/next.config';
+
 import Projects_card from '../../app/components/elements/projects_cards/Projects_card';
 
 export async function getStaticProps(context) {
-  const { data: projects } = await axios.get(`${url}/projects`);
+  const { data: projects } = await axios.get(
+    `${process.env.BACKEND_URL}/projects`,
+  );
 
   return {
     props: {

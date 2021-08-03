@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { url } from '../../../../config/next.config';
 
 import MyTechStack from '../../elements/myTechStack/MyTechStack';
 import TitleAnimated from '../../elements/titleAnimated/TitleAnimated';
@@ -29,7 +28,9 @@ const Header = ({ home_pic }) => {
         <div className="pt-16 col-start-5 col-span-4 row-start-1 row-span-3 flex justify-center items-end">
           <div className="h-40 w-40 sm:w-60 sm:h-60 md:h-80 md:w-80 relative">
             <Image
-              src={url + home_pic.mainPic.formats.medium.url}
+              src={
+                process.env.BACKEND_URL + home_pic.mainPic.formats.medium.url
+              }
               alt={home_pic.name}
               layout="fill"
               loading="lazy"

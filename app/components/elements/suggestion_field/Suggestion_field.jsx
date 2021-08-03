@@ -17,7 +17,6 @@ const Suggestion_field = () => {
 
   //Function will handle the data to send it
   const onSubmit = (data) => {
-    console.log(data);
     sendForm('service_portfolio', 'template_8n1gpgn', '#portfolio_form')
       .then(() => {
         toast.dark('Message Sent 😄!!');

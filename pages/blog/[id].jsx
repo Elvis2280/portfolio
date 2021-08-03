@@ -2,14 +2,13 @@ import axios from 'axios';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
 import useFormatDate from '../../app/hooks/useFormatDate';
 
-import { url } from '../../config/next.config';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Markdown_text from '../../app/components/modules/markdown_text/Markdown_text';
 
 export const getStaticPaths = async () => {
-  const { data: blogs } = await axios.get(`${url}/blogs`);
+  const { data: blogs } = await axios.get(`${process.env.BACKEND_URL}/blogs`);
 
   const paths = blogs.map((blog) => {
     return { params: { id: blog.id.toString() } };
@@ -22,7 +21,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { data: blog } = await axios.get(`${url}/blogs/${params.id}`);
+  const { data: blog } = await axios.get(
+    `${process.env.BACKEND_URL}/blogs/${params.id}`,
+  );
 
   return {
     props: blog,

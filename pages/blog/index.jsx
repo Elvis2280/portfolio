@@ -3,11 +3,12 @@ import { useState } from 'react';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
 import Link from 'next/link';
-import { url } from '../../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: blog } = await axios.get(`${url}/blogs`);
-  const { data: empty_searchPicture } = await axios.get(`${url}/empty-search`);
+  const { data: blog } = await axios.get(`${process.env.BACKEND_URL}/blogs`);
+  const { data: empty_searchPicture } = await axios.get(
+    `${process.env.BACKEND_URL}/empty-search`,
+  );
 
   return {
     props: {
@@ -100,7 +101,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
       {blog_card.every((element) => element === undefined) ? (
         <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
           <Image
-            src={`${url}${empty_searchPicture.empty_search_pic.url}`}
+            src={`${process.env.BACKEND_URL}${empty_searchPicture.empty_search_pic.url}`}
             layout="fill"
             alt={empty_searchPicture.empty_search_pic.name}
             className="custom-img"

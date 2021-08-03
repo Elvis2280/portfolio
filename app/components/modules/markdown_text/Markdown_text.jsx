@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown';
-import { url } from '../../../../config/next.config';
 import Image from 'next/image';
 
 //Change the img label to Image of nextjs
@@ -36,7 +35,7 @@ const Markdown_text = ({ content }) => {
         linkTarget="_blank"
         components={components}
         transformImageUri={(uri) =>
-          uri.startsWith('http') ? uri : `${url}${uri}`
+          uri.startsWith('https') ? uri : `${process.env.BACKEND_URL}${uri}`
         }
       >
         {content}

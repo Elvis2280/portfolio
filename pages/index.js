@@ -1,14 +1,16 @@
 import axios from 'axios';
-
 import Main_section from '../app/components/templates/Main_section/Main_section';
-import { url } from '../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: projects } = await axios.get(`${url}/projects`);
+  const { data: projects } = await axios.get(
+    `${process.env.BACKEND_URL}/projects`,
+  );
 
-  const { data: home_pic } = await axios.get(`${url}/home-picture`);
+  const { data: home_pic } = await axios.get(
+    `${process.env.BACKEND_URL}/home-picture`,
+  );
 
-  const { data: blogs } = await axios.get(`${url}/blogs`);
+  const { data: blogs } = await axios.get(`${process.env.BACKEND_URL}/blogs`);
 
   if (!projects && !home_pic && !blogs) {
     return {

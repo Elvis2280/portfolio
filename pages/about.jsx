@@ -1,10 +1,11 @@
 import axios from 'axios';
 import Image from 'next/image';
 import TitleAnimated from '../app/components/elements/titleAnimated/TitleAnimated';
-import { url } from '../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: aboutMe } = await axios.get(`${url}/about-me`);
+  const { data: aboutMe } = await axios.get(
+    `${process.env.BACKEND_URL}/about-me`,
+  );
 
   if (!aboutMe) {
     return {
@@ -74,14 +75,14 @@ const about = ({ aboutMe }) => {
             </svg>
           </div>
           <Image
-            src={url + aboutMe.myPic.formats.medium.url}
+            src={process.env.BACKEND_URL + aboutMe.myPic.formats.medium.url}
             alt={aboutMe.myPic.name}
             layout="fill"
             loading="lazy"
           />
           <div className="transform -translate-x-2/4 absolute bottom-0 translate-y-2/4 w-32 h-40 md:w-40 md:h-48 lg:w-44 lg:h-52 aboutMe--picBorder">
             <Image
-              src={url + aboutMe.myPic_2.formats.medium.url}
+              src={process.env.BACKEND_URL + aboutMe.myPic_2.formats.medium.url}
               alt={aboutMe.myPic.name}
               layout="fill"
               loading="lazy"

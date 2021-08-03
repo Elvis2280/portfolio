@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { url } from '../../../../config/next.config';
+
 import Link from 'next/link';
 
 const Projects_card = ({
@@ -48,7 +48,10 @@ const Projects_card = ({
 
               <section className="mt-3 unset-img">
                 <Image
-                  src={url + element.proyectPic[0].formats.large.url}
+                  src={
+                    process.env.BACKEND_URL +
+                    element.proyectPic[0].formats.large.url
+                  }
                   alt={element.title + ' Image'}
                   layout="fill"
                   className="custom-img"

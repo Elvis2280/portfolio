@@ -1,13 +1,15 @@
 import axios from 'axios';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
-import { url } from '../../config/next.config';
+
 import Image from 'next/image';
 import Markdown_text from '../../app/components/modules/markdown_text/Markdown_text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 export const getStaticPaths = async () => {
-  const { data: projects } = await axios.get(`${url}/projects`);
+  const { data: projects } = await axios.get(
+    `${process.env.BACKEND_URL}/projects`,
+  );
 
   const paths = projects.map((project) => {
     return { params: { id: project.id.toString() } };
@@ -20,7 +22,9 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params }) {
-  const { data: projects } = await axios.get(`${url}/projects/${params.id}`);
+  const { data: projects } = await axios.get(
+    `${process.env.BACKEND_URL}/projects/${params.id}`,
+  );
 
   return {
     props: projects,
@@ -53,7 +57,7 @@ const Projects_info = (projects) => {
 
           <div className="unset-img mb-3">
             <Image
-              src={`${url}${projects.proyectPic[0].url}`}
+              src={`${process.env.BACKEND_URL}${projects.proyectPic[0].url}`}
               alt={projects.proyectPic[0].name}
               layout="fill"
               className="custom-img"

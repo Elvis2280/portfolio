@@ -2,10 +2,11 @@ import axios from 'axios';
 import Image from 'next/image';
 
 import Btn_linkPage from '../app/components/elements/btn_linkPage/Btn_linkPage';
-import { url } from '../config/next.config';
 
 export async function getStaticProps(context) {
-  const { data: empty_page } = await axios.get(`${url}/empty-page`);
+  const { data: empty_page } = await axios.get(
+    `${process.env.BACKEND_URL}/empty-page`,
+  );
 
   return {
     props: {
@@ -26,7 +27,7 @@ function Custom404({ empty_page }) {
         <div className="unset-img xl:w-2/4">
           <Image
             alt={empty_page.page404.name}
-            src={url + empty_page.page404.url}
+            src={process.env.BACKEND_URL + empty_page.page404.url}
             layout="fill"
             loading="lazy"
             className="custom-img"
