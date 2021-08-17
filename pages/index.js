@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Main_section from '@/app/components/templates/Main_section/Main_section';
+import Head from 'next/head';
 
 export async function getStaticProps(context) {
   const { data: projects } = await axios.get(
@@ -28,7 +29,15 @@ export async function getStaticProps(context) {
 }
 
 const Home = ({ projects, home_pic, blogs }) => {
-  return <Main_section projects={projects} home_pic={home_pic} blogs={blogs} />;
+  return (
+    <>
+      <Head>
+        <title>Elvis Miranda portfolio</title>
+        <link rel="shortcut icon" href="/public/favicon.ico" />
+      </Head>
+      <Main_section projects={projects} home_pic={home_pic} blogs={blogs} />
+    </>
+  );
 };
 
 Home.layout = 'L1';

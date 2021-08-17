@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
 import Blog_card from '@/app/components/elements/blog_card/Blog_card';
+import Head from 'next/head';
 
 export async function getStaticProps(context) {
   const { data: blog } = await axios.get(`${process.env.BACKEND_URL}/blogs`);
@@ -55,44 +56,50 @@ const Blog = ({ blog, empty_searchPicture }) => {
   });
 
   return (
-    <section className="layout-component text-neutral pb-4">
-      <TitleAnimated
-        text={[`Elvis Miranda's <span>Blog</span> 👾`]}
-        textSize="text-3xl sm:text-5xl lg:text-6xl"
-      />
-
-      <p className="pt-1 text-neutralGray font-semibold">
-        My personal experiences and tips, I hope you can find something helpful.
-      </p>
-
-      <form className="pt-3 pb-2">
-        <label className="text-secondaryLight font-semibold text-lg">
-          Search
-        </label>{' '}
-        <br />
-        <input
-          type="text"
-          className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2 md:h-10 text-lg text-secondaryVeryLight"
-          placeholder="Type to search..."
-          onChange={(e) => searchBlog(e)}
-          value={search}
+    <>
+      <Head>
+        <title>Elvis Blog</title>
+      </Head>
+      <section className="layout-component text-neutral pb-4">
+        <TitleAnimated
+          text={[`Elvis Miranda's <span>Blog</span> 👾`]}
+          textSize="text-3xl sm:text-5xl lg:text-6xl"
         />
-      </form>
-      {/* if all the items are undefined because searchText then return empty message otherwise if its not empty show the blog card */}
-      {blog_card.every((element) => element === undefined) ? (
-        <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
-          <Image
-            src={`${empty_searchPicture.empty_search_pic.url}`}
-            layout="fill"
-            alt={empty_searchPicture.empty_search_pic.name}
-            className="custom-img"
+
+        <p className="pt-1 text-neutralGray font-semibold">
+          My personal experiences and tips, I hope you can find something
+          helpful.
+        </p>
+
+        <form className="pt-3 pb-2">
+          <label className="text-secondaryLight font-semibold text-lg">
+            Search
+          </label>{' '}
+          <br />
+          <input
+            type="text"
+            className=" bg-transparent border-secondaryLight border rounded w-full h-8 px-2 md:h-10 text-lg text-secondaryVeryLight"
+            placeholder="Type to search..."
+            onChange={(e) => searchBlog(e)}
+            value={search}
           />
-          <p className="text-xl md:text-2xl text-center">{`Sad not result!`}</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 gap-y-3 mt-2">{blog_card}</div>
-      )}
-    </section>
+        </form>
+        {/* if all the items are undefined because searchText then return empty message otherwise if its not empty show the blog card */}
+        {blog_card.every((element) => element === undefined) ? (
+          <div className="relative unset-img py-3 lg:w-3/4 lg:mx-auto">
+            <Image
+              src={`${empty_searchPicture.empty_search_pic.url}`}
+              layout="fill"
+              alt={empty_searchPicture.empty_search_pic.name}
+              className="custom-img"
+            />
+            <p className="text-xl md:text-2xl text-center">{`Sad not result!`}</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-y-3 mt-2">{blog_card}</div>
+        )}
+      </section>
+    </>
   );
 };
 //Choose the layaout 1 for this page
