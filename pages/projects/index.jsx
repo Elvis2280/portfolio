@@ -35,7 +35,7 @@ const Projects = ({ projects }) => {
           {projects.map((project) => {
             return (
               <Projects_card
-                key={project.id}
+                key={project.title}
                 projects={project}
                 bgColor="bg-transparent"
                 textColor="text-neutral "

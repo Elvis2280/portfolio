@@ -33,7 +33,6 @@ const Home = ({ projects, home_pic, blogs }) => {
     <>
       <Head>
         <title>Elvis Miranda portfolio</title>
-        <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>
       <Main_section projects={projects} home_pic={home_pic} blogs={blogs} />
     </>
