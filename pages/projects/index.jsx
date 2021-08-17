@@ -28,13 +28,20 @@ const Projects = ({ projects }) => {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Projects_card
-          projects={projects}
-          bgColor="bg-transparent"
-          textColor="text-neutral "
-          extraStyle="border border-secondaryLight"
-        />
+      <section className="grid grid-cols-1 gap-4 pt-6 sm:grid-cols-2 lg:grid-cols-3 ">
+        {projects.map((project) => {
+          return (
+            <Projects_card
+              key={project.id}
+              projects={project}
+              bgColor="bg-transparent"
+              textColor="text-neutral "
+              extraStyle="border border-secondaryLight hover:border-none"
+              coverColor="#94A9FF"
+              coverTextColor="#000249"
+            />
+          );
+        })}
       </section>
     </div>
   );

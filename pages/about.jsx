@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import TitleAnimated from '../app/components/elements/titleAnimated/TitleAnimated';
+import { motion } from 'framer-motion';
 
 export async function getStaticProps(context) {
   const { data: aboutMe } = await axios.get(
@@ -33,10 +34,15 @@ const about = ({ aboutMe }) => {
           />
         </h1>
 
-        <h3 className="text-lg md:text-xl pt-2 font-semibold text-neutralGray">
+        <motion.h3
+          initial={{ y: '-100vh' }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-lg md:text-xl pt-2 font-semibold text-neutralGray"
+        >
           {aboutMe.subtitle.slice(0, 1).toUpperCase() +
             aboutMe.subtitle.slice(1)}
-        </h3>
+        </motion.h3>
 
         <p className="text-neutral pt-4 pr-2 tracking-wide md:text-lg">
           {aboutMe.description}

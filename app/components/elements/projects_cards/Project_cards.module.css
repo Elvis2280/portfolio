@@ -1,0 +1,70 @@
+/* .project_card:hover .proyecto_viewmore {
+  border-bottom: 2px solid currentColor;
+  margin-bottom: -2px;
+} */
+
+.project_card::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -14px;
+  right: -14px;
+  background-color: var(--color);
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.5s ease-out;
+}
+
+.project_card:hover {
+  color: var(--textColor);
+}
+
+.project_card:hover::before {
+  transform: scale(40);
+}
+
+.proyecto_viewmore::after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  animation-name: border_leave;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+
+.project_card:hover .proyecto_viewmore::after {
+  width: 100%;
+  animation-name: border_hover;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes border_hover {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes border_leave {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
+}

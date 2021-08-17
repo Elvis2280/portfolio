@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
-import Link from 'next/link';
+import Blog_card from '../../app/components/elements/blog_card/Blog_card';
 
 export async function getStaticProps(context) {
   const { data: blog } = await axios.get(`${process.env.BACKEND_URL}/blogs`);
@@ -25,50 +25,31 @@ const Blog = ({ blog, empty_searchPicture }) => {
     e.preventDefault();
     setSearch(e.target.value);
   };
-  const blog_card = blog.map((blog) => {
+  const blog_card = blog.reverse().map((blogItem) => {
     //If the searchbar is not empty and have some similar text to the blog title render only that
     if (
       search.length !== 0 &&
-      blog.title.toLowerCase().includes(search.toLowerCase())
+      blogItem.title.toLowerCase().includes(search.toLowerCase())
     ) {
-      //title.replace(/\s/g, '-')
-
-      //TODO: I have to change this to one component because is same like home page blog
       return (
-        <Link href={`/blog/${blog.id}`} key={blog.id}>
-          <a>
-            <article className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer">
-              <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
-              <div className="flex items-center">
-                <p>{blog.date}</p>{' '}
-                <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
-                <p className="text-dangerous">{`${blog.time} min read`}</p>
-              </div>
-              <p className="pt-2 md:text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
-                {blog.description}
-              </p>
-            </article>
-          </a>
-        </Link>
+        <Blog_card
+          key={blog.id}
+          blog={blogItem}
+          bgColor="bg-transparent"
+          textColor="text-neutral"
+          extraStyle="border border-secondaryLight"
+        />
       );
       //only render all the elements if searchbar is empty
     } else if (search.length === 0) {
       return (
-        <Link href={`/blog/${blog.id}`} key={blog.id}>
-          <a>
-            <article className="border border-secondaryLight mt-3 px-3 py-2 rounded cursor-pointer">
-              <h3 className="text-xl font-semibold sm:text-xl">{blog.title}</h3>
-              <div className="flex items-center">
-                <p>{blog.date}</p>{' '}
-                <span className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-secondaryLight mx-1"></span>
-                <p className="text-dangerous">{`${blog.time} min read`}</p>
-              </div>
-              <p className="pt-2 md:text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
-                {blog.description}
-              </p>
-            </article>
-          </a>
-        </Link>
+        <Blog_card
+          key={blog.id}
+          blog={blogItem}
+          bgColor="bg-transparent"
+          textColor="text-neutral"
+          extraStyle="border border-secondaryLight"
+        />
       );
     }
   });
@@ -109,7 +90,7 @@ const Blog = ({ blog, empty_searchPicture }) => {
           <p className="text-xl md:text-2xl text-center">{`Sad not result!`}</p>
         </div>
       ) : (
-        blog_card.reverse()
+        <div className="grid grid-cols-1 gap-y-3 mt-2">{blog_card}</div>
       )}
     </section>
   );

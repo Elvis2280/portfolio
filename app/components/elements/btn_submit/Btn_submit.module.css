@@ -1,0 +1,73 @@
+.btn_link::after,
+.btn_link::before {
+  content: '';
+  top: 50%;
+
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #000249;
+}
+
+.btn_link::before {
+  transform: translate(-100%, -50%);
+  left: 0;
+}
+
+.btn_link::after {
+  transform: translate(100%, -50%);
+  right: 0;
+}
+
+.btn_link:hover {
+  color: #fafdf6;
+  transition: all 0.2s;
+  transition-delay: 0.5s;
+  transform: scale(1.1);
+}
+
+.btn_link:hover::before {
+  animation: criss-cross-left 0.8s both;
+  animation-direction: alternate;
+}
+.btn_link:hover::after {
+  animation: criss-cross-right 0.8s both;
+  animation-direction: alternate;
+}
+
+@keyframes criss-cross-left {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 60%;
+    /* @include size(20px); */
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 75%;
+    /* @include size($btn-width * 1.5); */
+    width: 150%;
+    height: 150%;
+  }
+}
+
+@keyframes criss-cross-right {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 60%;
+    /* @include size(20px); */
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    right: 75%;
+    /* @include size($btn-width * 1.5); */
+    width: 150%;
+    height: 150%;
+  }
+}

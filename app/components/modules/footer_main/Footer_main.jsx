@@ -1,18 +1,62 @@
 import Suggestion_field from '../../elements/suggestion_field/Suggestion_field';
 import Suggest_svg from '../../elements/suggest_svg/Suggest_svg';
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
 
 const Footer_main = () => {
+  //framer motion variants
+  const variantsText = {
+    hiddenX: {
+      x: '-100vw',
+    },
+    hiddenY: {
+      y: '100vh',
+    },
+  };
+  //framer motion animation control
+  const controlX = useAnimation();
+  const controlY = useAnimation();
+
+  // interception event when the element is in the screen view it show the animation
+  const { ref, inView, entry } = useInView();
+  if (inView) {
+    controlX.start({
+      x: 0,
+      transition: {
+        delay: 0.7,
+      },
+    });
+    controlY.start({
+      y: 0,
+      transition: {
+        delay: 0.7,
+        type: 'spring',
+        stiffness: 40,
+      },
+    });
+  }
+
   return (
     <section className="text-neutral  relative pt-20vw pb-20">
       <div className="layout-component grid grid-cols-1 md:grid-cols-2 md:items-center">
-        <div className="relative">
-          <h3 className="text-2xl font-semibold sm:text-3xl lg:text-4xl">
+        <div ref={ref} className="relative">
+          <motion.h3
+            variants={variantsText}
+            initial="hiddenY"
+            animate={controlY}
+            className="text-2xl font-semibold sm:text-3xl lg:text-4xl"
+          >
             Topic <span className="text-secondaryLight ">Suggestions</span>
-          </h3>
+          </motion.h3>
 
-          <p className="pt-3 md:text-lg">
+          <motion.p
+            variants={variantsText}
+            initial="hiddenX"
+            animate={controlX}
+            className="pt-3 md:text-lg"
+          >
             Tutorial idea, Feedback, or any words you wanna tell me.
-          </p>
+          </motion.p>
           <Suggestion_field />
         </div>
 

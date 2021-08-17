@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import style from './Btn_link.module.css';
 
 const Btn_linkPage = ({ children, extraStyle, pageDirection }) => {
   return (
-    <p>
-      <Link href={pageDirection}>
+    <p className={`relative inline-block z-10`}>
+      <Link href={pageDirection} passHref={true}>
         <a
-          className={`bg-secondaryVeryLight cursor-pointer px-3 py-2 inline-block text-secondaryDark font-semibold rounded-lg hover:bg-secondaryDark hover:text-secondaryVeryLight transition-all duration-200 ${extraStyle} lg:text-lg`}
+          className={`cursor-pointer  bg-secondaryVeryLight inline-block text-secondaryDark font-semibold rounded-lg px-4 py-2 btn_anime  ${extraStyle}  lg:text-lg relative ${style.btn_link} overflow-hidden shadow-lg`}
         >
-          {children}
+          <span className="z-10 relative">{children}</span>
         </a>
       </Link>
     </p>

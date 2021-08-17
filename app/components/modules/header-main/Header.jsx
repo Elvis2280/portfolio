@@ -3,10 +3,11 @@ import Image from 'next/image';
 import MyTechStack from '../../elements/myTechStack/MyTechStack';
 import TitleAnimated from '../../elements/titleAnimated/TitleAnimated';
 import style from './Header.module.css';
+import { motion } from 'framer-motion';
 
 const Header = ({ home_pic }) => {
   return (
-    <div className="relative pb-20vw ">
+    <div className="relative pb-20vw overflow-hidden">
       <div className="z-10 relative grid grid-cols-8 auto-rows-max layout-component">
         <div className="col-start-1 col-span-5 row-start-1 row-span-2">
           <TitleAnimated
@@ -20,13 +21,23 @@ const Header = ({ home_pic }) => {
             textSize="text-4xl sm:text-5xl lg:text-6xl"
             breakText={true}
           />
-          <p className="text-neutralGray font-bold pb-8 sm:text-xl ">
+          <motion.p
+            initial={{ y: '-100vh', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-neutralGray font-bold pb-8 sm:text-xl "
+          >
             Frontend Developer
-          </p>
+          </motion.p>
         </div>
 
-        <div className="pt-16 col-start-5 col-span-4 row-start-1 row-span-3 flex justify-center items-end">
-          <div className="h-40 w-40 sm:w-60 sm:h-60 md:h-80 md:w-80 relative">
+        <div className="pt-16 col-start-5 col-span-4 row-start-1 row-span-3 flex justify-center items-end ">
+          <motion.div
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            transition={{ type: 'spring', delay: 0.5, stiffness: 80 }}
+            className="h-40 w-40 sm:w-60 sm:h-60 md:h-80 md:w-80 relative"
+          >
             <Image
               src={home_pic.mainPic.formats.medium.url}
               alt={home_pic.name}
@@ -34,12 +45,17 @@ const Header = ({ home_pic }) => {
               loading="lazy"
               className={` imgRound ${style.pic__border}`}
             />
-          </div>
+          </motion.div>
         </div>
 
-        <div className="col-start-1 col-span-full pt-2 relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 1.5 }}
+          className="col-start-1 col-span-full pt-2 relative"
+        >
           <MyTechStack />
-        </div>
+        </motion.div>
       </div>
 
       <svg

@@ -1,5 +1,6 @@
 import Btn_linkPage from '../../elements/btn_linkPage/Btn_linkPage';
 import Projects_card from '../../elements/projects_cards/Projects_card';
+import lastTreeItems from '../../../utils/lastTreeItems';
 
 const Projects_home = ({ projects }) => {
   return (
@@ -8,7 +9,9 @@ const Projects_home = ({ projects }) => {
         My last <span className="text-secondaryVeryLight">Projects</span>
       </h3>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Projects_card projects={projects} />
+        {lastTreeItems(projects).map((project) => {
+          return <Projects_card key={project.id} projects={project} />;
+        })}
       </div>
 
       <Btn_linkPage pageDirection="/projects" extraStyle="mt-4">
