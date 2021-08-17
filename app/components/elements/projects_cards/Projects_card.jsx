@@ -35,6 +35,8 @@ const Projects_card = ({
       x: 0,
       transition: {
         delay: 0.7,
+        type: 'spring',
+        stiffness: 60,
       },
     });
   }
