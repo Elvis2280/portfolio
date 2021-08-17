@@ -1,7 +1,6 @@
 import axios from 'axios';
-import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
-
-import Projects_card from '../../app/components/elements/projects_cards/Projects_card';
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
+import Projects_card from '@/app/components/elements/projects_cards/Projects_card';
 
 export async function getStaticProps(context) {
   const { data: projects } = await axios.get(

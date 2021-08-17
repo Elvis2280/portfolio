@@ -1,8 +1,7 @@
 import axios from 'axios';
-import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
-
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
-import Markdown_text from '../../app/components/modules/markdown_text/Markdown_text';
+import Markdown_text from '@/app/components/modules/markdown_text/Markdown_text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 

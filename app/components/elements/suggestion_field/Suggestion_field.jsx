@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
-import Btn_submit from '../btn_submit/Btn_submit';
+import Btn_submit from '@/app/components/elements/btn_submit/Btn_submit';
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 

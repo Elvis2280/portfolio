@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Image from 'next/image';
-import TitleAnimated from '../app/components/elements/titleAnimated/TitleAnimated';
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 

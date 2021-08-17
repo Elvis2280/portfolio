@@ -1,11 +1,10 @@
 import axios from 'axios';
-import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
-import useFormatDate from '../../app/hooks/useFormatDate';
-
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
+import useFormatDate from '@/app/hooks/useFormatDate';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import Markdown_text from '../../app/components/modules/markdown_text/Markdown_text';
+import Markdown_text from '@/app/components/modules/markdown_text/Markdown_text';
 
 export const getStaticPaths = async () => {
   const { data: blogs } = await axios.get(`${process.env.BACKEND_URL}/blogs`);

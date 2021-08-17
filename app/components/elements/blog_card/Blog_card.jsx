@@ -11,7 +11,7 @@ const Blog_card = ({ blog, bgColor, textColor, extraStyle = '' }) => {
       transition: {
         delay: 0.7,
         type: 'spring',
-        stiffness: 60,
+        stiffness: 80,
       },
     });
   }

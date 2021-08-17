@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import Spotify_card from '../../elements/spotify_card/Spotify_card';
+import Spotify_card from '@/app/components/elements/spotify_card/Spotify_card';
 
 const Footer = () => {
   return (

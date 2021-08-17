@@ -3,7 +3,8 @@ import { useQuery } from 'react-query';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
-import noMusicPic from '../../../../public/Music_Monochromatic(1).svg';
+
+import noMusicPic from '@/public/Music_Monochromatic(1).svg';
 
 const Spotify_card = () => {
   const { isSuccess, data: song } = useQuery(['spotify'], async () => {

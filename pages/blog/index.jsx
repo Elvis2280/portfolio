@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
-import TitleAnimated from '../../app/components/elements/titleAnimated/TitleAnimated';
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import Image from 'next/image';
-import Blog_card from '../../app/components/elements/blog_card/Blog_card';
+import Blog_card from '@/app/components/elements/blog_card/Blog_card';
 
 export async function getStaticProps(context) {
   const { data: blog } = await axios.get(`${process.env.BACKEND_URL}/blogs`);

@@ -1,5 +1,5 @@
-import Suggestion_field from '../../elements/suggestion_field/Suggestion_field';
-import Suggest_svg from '../../elements/suggest_svg/Suggest_svg';
+import Suggestion_field from '@/app/components/elements/suggestion_field/Suggestion_field';
+import Suggest_svg from '@/app/components/elements/suggest_svg/Suggest_svg';
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 
@@ -25,7 +25,7 @@ const Footer_main = () => {
       transition: {
         delay: 0.7,
         type: 'spring',
-        stiffness: 60,
+        stiffness: 80,
       },
     });
     controlY.start({

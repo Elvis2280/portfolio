@@ -1,6 +1,6 @@
-import lastTreeItems from '../../../utils/lastTreeItems';
-import Blog_card from '../../elements/blog_card/Blog_card';
-import Btn_linkPage from '../../elements/btn_linkPage/Btn_linkPage';
+import lastTreeItems from '@/app/utils/lastTreeItems';
+import Blog_card from '@/app/components/elements/blog_card/Blog_card';
+import Btn_linkPage from '@/app/components/elements/btn_linkPage/Btn_linkPage';
 
 const Blog_main = ({ blogs }) => {
   return (

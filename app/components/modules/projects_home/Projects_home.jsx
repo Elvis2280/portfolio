@@ -1,6 +1,6 @@
-import Btn_linkPage from '../../elements/btn_linkPage/Btn_linkPage';
-import Projects_card from '../../elements/projects_cards/Projects_card';
-import lastTreeItems from '../../../utils/lastTreeItems';
+import Btn_linkPage from '@/app/components/elements/btn_linkPage/Btn_linkPage';
+import Projects_card from '@/app/components/elements/projects_cards/Projects_card';
+import lastTreeItems from '@/app/utils/lastTreeItems';
 
 const Projects_home = ({ projects }) => {
   return (

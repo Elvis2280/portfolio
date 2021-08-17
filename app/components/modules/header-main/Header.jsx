@@ -1,7 +1,6 @@
 import Image from 'next/image';
-
-import MyTechStack from '../../elements/myTechStack/MyTechStack';
-import TitleAnimated from '../../elements/titleAnimated/TitleAnimated';
+import MyTechStack from '@/app/components/elements/myTechStack/MyTechStack';
+import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import style from './Header.module.css';
 import { motion } from 'framer-motion';
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Main_section from '../app/components/templates/Main_section/Main_section';
+import Main_section from '@/app/components/templates/Main_section/Main_section';
 
 export async function getStaticProps(context) {
   const { data: projects } = await axios.get(

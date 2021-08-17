@@ -1,5 +1,5 @@
-import Navbar from '../../elements/navBar/Navbar';
-import Footer from '../../modules/footer/Footer';
+import Navbar from '@/app/components/elements/navBar/Navbar';
+import Footer from '@/app/components/modules/footer/Footer';
 
 const Layout = ({ children }) => {
   return (
