@@ -38,7 +38,7 @@ const Header = ({ home_pic }) => {
             className="h-40 w-40 sm:w-60 sm:h-60 md:h-80 md:w-80 relative"
           >
             <Image
-              src={home_pic.mainPic.formats.medium.url}
+              src={home_pic.mainPic.url}
               alt={home_pic.name}
               layout="fill"
               loading="lazy"

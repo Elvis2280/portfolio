@@ -26,8 +26,6 @@ const Suggestion_field = () => {
     });
   }
 
-  console.log(inView);
-
   //Taking react hooks form variables
   const {
     register,

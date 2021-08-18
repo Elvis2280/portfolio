@@ -134,7 +134,7 @@ const Projects_card = ({
             className="mt-3 unset-img z-10 relative"
           >
             <Image
-              src={projects.proyectPic[0].formats.large.url}
+              src={projects.proyectPic[0].url}
               alt={projects.title + ' Image'}
               layout="fill"
               className="custom-img"
