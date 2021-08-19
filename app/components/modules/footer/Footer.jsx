@@ -13,7 +13,7 @@ const Footer = () => {
           Find <span className="text-secondaryLight">Me</span>
         </p>
         <div className=" text-2xl md:text-3xl flex flex-col items-center">
-          <article>
+          <article className="grid grid-cols-3 gap-x-3">
             <a
               className="hover:text-secondaryLight transition-all"
               href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=elvisdev2280g@gmail.com&tf=1"
@@ -23,7 +23,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <a
-              className="hover:text-secondaryLight transition-all mx-3"
+              className="hover:text-secondaryLight transition-all"
               href="https://github.com/Elvis2280?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"

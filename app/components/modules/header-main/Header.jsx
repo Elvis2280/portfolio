@@ -19,6 +19,7 @@ const Header = ({ home_pic }) => {
             ]}
             textSize="text-4xl sm:text-5xl lg:text-6xl"
             breakText={true}
+            extraStyle="md:pt-14 lg:pt-16"
           />
           <motion.p
             initial={{ y: '-100vh', opacity: 0 }}
@@ -30,7 +31,7 @@ const Header = ({ home_pic }) => {
           </motion.p>
         </div>
 
-        <div className="pt-16 col-start-5 col-span-4 row-start-1 row-span-3 flex justify-center items-end ">
+        <div className="pt-16  col-start-5 col-span-4 row-start-1 row-span-3 flex justify-center items-end z-50 md:transform md:translate-y-11 lg:translate-y-16">
           <motion.div
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
@@ -42,7 +43,7 @@ const Header = ({ home_pic }) => {
               alt={home_pic.name}
               layout="fill"
               loading="lazy"
-              className={` imgRound ${style.pic__border}`}
+              className={` imgRound ${style.pic__border} `}
             />
           </motion.div>
         </div>
@@ -51,7 +52,7 @@ const Header = ({ home_pic }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, delay: 1.5 }}
-          className="col-start-1 col-span-full pt-2 relative"
+          className="col-start-1 col-span-full pt-2 relative md:transform md:translate-y-3 lg:translate-y-10"
         >
           <MyTechStack />
         </motion.div>

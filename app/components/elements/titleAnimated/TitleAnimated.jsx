@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 
-const TitleAnimated = ({ text, textSize, breakText }) => {
+const TitleAnimated = ({ text, textSize, breakText, extraStyle = '' }) => {
   const contRef = useRef(null);
   const textRef = useRef(null);
 
@@ -23,7 +23,7 @@ const TitleAnimated = ({ text, textSize, breakText }) => {
   }, []);
   return (
     <>
-      <div className={`type-wrap font-bold pt-6 ${textSize}`}>
+      <div className={`type-wrap font-bold pt-6 ${extraStyle} ${textSize}`}>
         <span
           //TitleAnimeColor set to all the element inside this color to blue, this is for the spans on the text we set
 
