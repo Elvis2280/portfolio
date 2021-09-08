@@ -34,6 +34,7 @@ const Home = ({ projects, home_pic, blogs }) => {
       <Head>
         <title>Elvis Miranda portfolio</title>
       </Head>
+
       <Main_section projects={projects} home_pic={home_pic} blogs={blogs} />
     </>
   );

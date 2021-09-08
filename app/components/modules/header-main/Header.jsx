@@ -59,7 +59,7 @@ const Header = ({ home_pic }) => {
       </div>
 
       <svg
-        className="absolute bottom-0 "
+        className={`absolute ${style.bottomPath}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >

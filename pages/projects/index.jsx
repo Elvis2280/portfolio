@@ -2,6 +2,7 @@ import axios from 'axios';
 import TitleAnimated from '@/app/components/elements/titleAnimated/TitleAnimated';
 import Projects_card from '@/app/components/elements/projects_cards/Projects_card';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 export async function getStaticProps(context) {
   const { data: projects } = await axios.get(
     `${process.env.BACKEND_URL}/projects`,
@@ -20,7 +21,12 @@ const Projects = ({ projects }) => {
       <Head>
         <title>Elvis Projects</title>
       </Head>
-      <div className="text-neutral layout-component ">
+      <motion.div
+        className="text-neutral layout-component "
+        exit={{
+          opacity: 0,
+        }}
+      >
         <header>
           <TitleAnimated
             text={[`Elvis Miranda's <span>Projects 💻</span>`]}
@@ -46,7 +52,7 @@ const Projects = ({ projects }) => {
             );
           })}
         </section>
-      </div>
+      </motion.div>
     </>
   );
 };
