@@ -28,7 +28,7 @@ const TitleAnimated = ({ text, textSize, breakText, extraStyle = '' }) => {
           //TitleAnimeColor set to all the element inside this color to blue, this is for the spans on the text we set
 
           className="TitleAnimeColor"
-          style={breakText ? { whiteSpace: 'pre' } : {}}
+          style={breakText ? { whiteSpace: 'normal' } : {}}
           ref={contRef}
         />
       </div>

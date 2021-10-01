@@ -8,7 +8,7 @@ const Header = ({ home_pic }) => {
   return (
     <div className="relative pb-20vw overflow-hidden">
       <div className="z-10 relative grid grid-cols-8 auto-rows-max layout-component">
-        <div className="col-start-1 col-span-5 row-start-1 row-span-2">
+        <div className="col-start-1 col-span-8 row-start-1 row-span-2">
           <TitleAnimated
             text={[
               `Hi, I'm <span >Elvis</span >`,
